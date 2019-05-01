@@ -1,7 +1,11 @@
-@media (max-width:768px) {
+@media (max-width:769px) {
     .block {
         box-sizing: border-box;
         width: 100%;
+    }
+
+    .hide-on-sm {
+        display: none;
     }
 }
 

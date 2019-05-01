@@ -4,7 +4,7 @@ import Home from './Home';
 import About from './About'
 import NewEntry from './NewEntry'
 import Bios from './Bios'
-import { Navbar, Nav, Button, Container, Row, Col } from 'react-bootstrap'
+import { Navbar, Nav, Button } from 'react-bootstrap'
 
 const App = () => {
   return (
