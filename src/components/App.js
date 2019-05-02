@@ -34,6 +34,7 @@ const App = (props) => {
       </Navbar.Collapse>
     </Navbar>
 
+
     <Route path='/home' component={Home}/>
     <Route path='/about' component={About}/>
     <Route path='/newentry' component={NewEntry}/>

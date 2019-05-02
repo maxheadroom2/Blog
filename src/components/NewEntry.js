@@ -1,7 +1,12 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import * as actions from '../redux/actions'
+// Estilos
 import { Container, Row, Col, Card, InputGroup, FormControl, Tab, Tabs } from 'react-bootstrap';
 
-const View = () => {
+
+const View = (props) => {
+  let { updateTask, task, task1, task2 } = props
     return(
         <React.Fragment>
         <br/>
@@ -30,17 +35,46 @@ const View = () => {
                                             <InputGroup.Prepend>
                                               <InputGroup.Text>Title</InputGroup.Text>
                                             </InputGroup.Prepend>
-                                            <FormControl />
+                                            <FormControl
+                                              className="Titulo"
+                                              name="title"
+                                              type="text"
+                                              value={task}
+                                              onChange={(e) => updateTask(e.target.value)}
+                                              />
                                         </InputGroup>
                                     </Card.Header>
+
                                     <Card.Body>
                                       <Card.Title>Content</Card.Title>
                                       <Card.Text>
                                         <InputGroup>
-                                          <FormControl as="textarea"/>
+                                          <FormControl
+                                            className="Titulo"
+                                            name="content"
+                                            type="text"
+                                            value={task1}
+                                            onChange={(e) => updateTask(e.target.value)}
+                                             as="textarea"/>
                                         </InputGroup>
                                       </Card.Text>
                                     </Card.Body>
+
+                                    <Card.Body>
+                                      <Card.Title>Autor</Card.Title>
+                                      <Card.Text>
+                                        <InputGroup>
+                                          <FormControl
+                                            className="Titulo"
+                                            name="autor"
+                                            type="text"
+                                            value={task2}
+                                            onChange={(e) => updateTask(e.target.value)}
+                                             as="textarea"/>
+                                        </InputGroup>
+                                      </Card.Text>
+                                    </Card.Body>
+
                                 </Card>
                             </Col>
                             </Row>
@@ -87,4 +121,9 @@ const View = () => {
     )
 }
 
-export default View
+const mapStateToProps = ({blogRedux}) => {
+  const { task, task1, task2 } = blogRedux
+  return { task, task1, task2 }
+}
+
+export default connect(mapStateToProps, actions)(View);
